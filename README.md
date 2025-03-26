@@ -1,1 +1,1 @@
-![Test Status](https://github.com/LTH5299LTH5299/ci_project/actions/workflows/ci.yml/badge.svg)
+![Test Status](https://github.com/LTH5299/my_project_2/actions/workflows/ci.yml/badge.svg)
