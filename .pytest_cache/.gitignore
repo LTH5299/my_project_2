@@ -1,6 +1,10 @@
 # Created by pytest automatically.
-__pycache__/
+
 .pytest_cache/
+__pycache__/
 venv/
 *.pyc
-.env
+*.pyo
+*.log
+.DS_Store
+
