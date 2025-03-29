@@ -42,3 +42,11 @@ jobs:
 
       - name: Upload coverage
         uses: codecov/codecov-action@v3
+
+      # Gửi thông báo khi thử nghiệm thành công
+      - name: Send Telegram notification on success
+        if: ${{ success() }} # Chỉ chạy khi job thành công
+        run: |
+          curl -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage \
+          -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+          -d text="✅ CI Pipeline succeeded on job '${{ github.job }}' for commit ${{ github.sha }} by ${{ github.actor }} in ${{ github.repository }}."
