@@ -1,8 +1,9 @@
 import requests
-import os
 from typing import Optional
 
+
 def send_telegram_message(token: str, chat_id: str, message: str) -> Optional[int]:
+    """Gửi thông báo đến Telegram qua bot."""
     try:
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         response = requests.post(
