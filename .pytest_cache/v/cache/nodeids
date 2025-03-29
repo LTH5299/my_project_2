@@ -1,0 +1,4 @@
+[
+  "test_calculator.py::test_add",
+  "tests/test_calculator.py::test_add"
+]

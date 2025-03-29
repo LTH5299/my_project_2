@@ -1,11 +1,16 @@
 import pytest
 from notify_telegram import send_telegram_message
+import os
+from typing import Optional
 
 @pytest.hookimpl(tryfirst=True)
 def pytest_exception_interact(node, call, report):
     if report.failed:
-            send_telegram_message(
-            token="7606649602:AAGojHdS-bePCl9Kp_sZpw2HZXHOS3C5PGw",
-            chat_id="@hin52_bot",
-            message=f"❌ Test failed: {node.name}\nError: {report.longreprtext}"
+        telegram_token = os.getenv("TELEGRAM_TOKEN")
+        chat_id = os.getenv("TELEGRAM_CHAT_ID")
+        
+        send_telegram_message(
+            token=telegram_token,
+            chat_id=chat_id,
+            message=f"❌ *Test Failed*: `{node.name}`\n``````"
         )
